@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Real Estate Agent - Luxury Homes, Expert Service, Real-Time Listings & Virtual Tours. Your trusted partner in finding dream properties.">
+    <meta name="keywords" content="real estate, luxury homes, property listings, MLS, IDX, virtual tours, home valuation">
+    <meta name="author" content="[Your Full Name]">
+    <meta name="theme-color" content="#1a2332">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="[Your Full Name] - Premium Real Estate Agent">
+    <meta property="og:description" content="Discover luxury properties with cutting-edge technology and personalized service">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og-image.jpg">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <title>[Your Full Name] - Ultra-Premium Real Estate Agent | [Your City/Neighborhood]</title>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "[Your Full Name]",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "[Your City/Neighborhood]",
+        "addressRegion": "[State]",
+        "addressCountry": "[Country]"
+      },
+      "telephone": "[Your Phone]",
+      "email": "[Your Email]",
+      "url": "[Your Website URL]",
+      "image": "[Your Photo URL]",
+      "priceRange": "$$$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "150"
+      }
+    }
+    </script>
+</head>
+<body>
+    
+    <!-- ==================== PREMIUM STICKY HEADER ==================== -->
+    <header id="main-header" class="sticky-header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-home-lg-alt"></i>
+                    <span class="logo-text">[Your Name]</span>
+                </div>
+                <div class="license-badge">
+                    <i class="fas fa-certificate"></i>
+                    <span>License: [RE License Number]</span>
+                </div>
+            </div>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#search" class="nav-link">Search Properties</a></li>
+                    <li><a href="#sell" class="nav-link">Sell Your Home</a></li>
+                    <li><a href="#market" class="nav-link">Market Insights</a></li>
+                    <li><a href="#about" class="nav-link">About Me</a></li>
+                    <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-cta">
+                <div class="contact-icons">
+                    <a href="tel:[Your Phone]" class="icon-btn phone-btn" aria-label="Call Now">
+                        <i class="fas fa-phone"></i>
+                        <span class="tooltip">Call Now</span>
+                    </a>
+                    <a href="https://wa.me/[WhatsApp Number]" class="icon-btn whatsapp-btn" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="tooltip">WhatsApp</span>
+                    </a>
+                    <a href="mailto:[Your Email]" class="icon-btn email-btn" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                        <span class="tooltip">Email</span>
+                    </a>
+                </div>
+                <button class="btn btn-primary header-btn" onclick="openContactModal()">
+                    <i class="fas fa-calendar-check"></i> Book Free Consultation
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Live Status Bar -->
+        <div class="live-status-bar">
+            <div class="container status-container">
+                <div class="status-item">
+                    <i class="fas fa-circle pulse-dot"></i>
+                    <span>Live MLS Data Updated <span id="lastUpdateTime">Just Now</span></span>
+                </div>
+                <div class="status-item">
+                    <i class="fas fa-home"></i>
+                    <span><strong id="liveListingCount">Loading...</strong> Active Listings</span>
+                </div>
+                <div class="status-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Office Hours: <span id="officeHours">Mon-Sun 8AM-9PM</span></span>
+                </div>
+                <div class="status-item availability-status">
+                    <i class="fas fa-user-check"></i>
+                    <span id="agentAvailability">Available Now</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== CINEMATIC HERO SECTION ==================== -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+                <source src="assets/hero-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-label animate-fade-in-up">
+                    <i class="fas fa-award"></i> [X Years] of Excellence in Real Estate
+                </span>
+                <h1 class="hero-title animate-fade-in-up delay-1">
+                    Discover Your Dream Home<br>
+                    <span class="gradient-text">With Confidence & Clarity</span>
+                </h1>
+                <p class="hero-description animate-fade-in-up delay-2">
+                    Experience luxury real estate redefined. Advanced AI-powered search, real-time market data, 
+                    3D virtual tours, and personalized service that exceeds expectations.
+                </p>
+                
+                <div class="hero-stats animate-fade-in-up delay-3">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">Homes Sold</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="98">0</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="12">0</div>
+                        <div class="stat-label">Avg Days on Market</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="106">0</div>
+                        <div class="stat-label">% Over Asking</div>
+                    </div>
+                </div>
+                
+                <div class="hero-cta animate-fade-in-up delay-4">
+                    <button class="btn btn-primary btn-large" onclick="scrollToSearch()">
+                        <i class="fas fa-search"></i> Search Properties Now
+                    </button>
+                    <button class="btn btn-secondary btn-large" onclick="openValuationModal()">
+                        <i class="fas fa-chart-line"></i> Get Free Home Valuation
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Quick Search Widget -->
+            <div class="hero-search-widget animate-fade-in-up delay-5">
+                <div class="search-tabs">
+                    <button class="search-tab active" data-tab="buy">
+                        <i class="fas fa-home"></i> Buy
+                    </button>
+                    <button class="search-tab" data-tab="sell">
+                        <i class="fas fa-dollar-sign"></i> Sell
+                    </button>
+                    <button class="search-tab" data-tab="rent">
+                        <i class="fas fa-key"></i> Rent
+                    </button>
+                </div>
+                
+                <div class="search-content active" data-content="buy">
+                    <form class="quick-search-form" onsubmit="handleQuickSearch(event)">
+                        <div class="search-input-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="quickSearchLocation" placeholder="Enter City, Neighborhood, or ZIP Code" autocomplete="off">
+                            <div id="quickSearchSuggestions" class="search-suggestions"></div>
+                        </div>
+                        <div class="search-filters-row">
+                            <select id="quickPropertyType" class="search-select">
+                                <option value="">Property Type</option>
+                                <option value="house">House</option>
+                                <option value="condo">Condo</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="land">Land</option>
+                                <option value="multi-family">Multi-Family</option>
+                            </select>
+                            <select id="quickBeds" class="search-select">
+                                <option value="">Beds</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                                <option value="5">5+</option>
+                            </select>
+                            <select id="quickBaths" class="search-select">
+                                <option value="">Baths</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                            </select>
+                            <input type="text" id="quickPriceRange" class="search-select" placeholder="Price Range" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-search"></i> Search Live Listings
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="search-content" data-content="sell">
+                    <form class="quick-valuation-form" onsubmit="handleQuickValuation(event)">
+                        <div class="search-input-group">
+                            <i class="fas fa-home"></i>
+                            <input type="text" id="valuationAddress" placeholder="Enter Your Property Address" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-chart-line"></i> Get Instant Free Valuation
+                        </button>
+                        <p class="form-note">Get your property's current market value in 60 seconds</p>
+                    </form>
+                </div>
+                
+                <div class="search-content" data-content="rent">
+                    <form class="quick-search-form" onsubmit="handleQuickSearch(event, 'rent')">
+                        <div class="search-input-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="rentSearchLocation" placeholder="Enter Location" autocomplete="off">
+                        </div>
+                        <div class="search-filters-row">
+                            <select id="rentBeds" class="search-select">
+                                <option value="">Beds</option>
+                                <option value="studio">Studio</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                            </select>
+                            <input type="text" id="rentPriceRange" class="search-select" placeholder="Monthly Rent" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-search"></i> Find Rentals
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to Explore</span>
+        </div>
+    </section>
+
+    <!-- ==================== ADVANCED REAL-TIME PROPERTY SEARCH ==================== -->
+    <section id="search" class="search-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">
+                    <i class="fas fa-circle pulse-dot"></i> Live MLS/IDX Integration
+                </span>
+                <h2 class="section-title">Advanced Property Search</h2>
+                <p class="section-description">
+                    Search thousands of properties with real-time data updated every 5 minutes. 
+                    Advanced filters, interactive maps, and AI-powered recommendations.
+                </p>
+            </div>
+            
+            <!-- Advanced Search Filters -->
+            <div class="search-container">
+                <div class="search-filters-panel" id="searchFiltersPanel">
+                    <div class="filters-header">
+                        <h3><i class="fas fa-filter"></i> Advanced Filters</h3>
+                        <button class="btn-text" onclick="resetFilters()">
+                            <i class="fas fa-redo"></i> Reset All
+                        </button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Location</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="searchLocation" class="filter-input" placeholder="City, Neighborhood, ZIP" autocomplete="off">
+                        </div>
+                        <div id="locationSuggestions" class="autocomplete-suggestions"></div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Price Range</label>
+                        <div class="range-slider-container">
+                            <input type="range" id="minPrice" class="range-slider" min="0" max="10000000" step="50000" value="0">
+                            <input type="range" id="maxPrice" class="range-slider" min="0" max="10000000" step="50000" value="10000000">
+                            <div class="range-values">
+                                <span id="minPriceLabel">$0</span>
+                                <span id="maxPriceLabel">$10M+</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="filter-label">Property Type</label>
+                            <select id="propertyType" class="filter-select">
+                                <option value="">All Types</option>
+                                <option value="single-family">Single Family</option>
+                                <option value="condo">Condo</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="multi-family">Multi-Family</option>
+                                <option value="land">Land</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Status</label>
+                            <select id="propertyStatus" class="filter-select">
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="sold">Recently Sold</option>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="filter-label">Bedrooms</label>
+                            <div class="button-group">
+                                <button class="btn-chip" data-value="any" onclick="selectBeds(this)">Any</button>
+                                <button class="btn-chip" data-value="1" onclick="selectBeds(this)">1+</button>
+                                <button class="btn-chip" data-value="2" onclick="selectBeds(this)">2+</button>
+                                <button class="btn-chip" data-value="3" onclick="selectBeds(this)">3+</button>
+                                <button class="btn-chip" data-value="4" onclick="selectBeds(this)">4+</button>
+                                <button class="btn-chip" data-value="5" onclick="selectBeds(this)">5+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="filter-label">Bathrooms</label>
+                            <div class="button-group">
+                                <button class="btn-chip" data-value="any" onclick="selectBaths(this)">Any</button>
+                                <button class="btn-chip" data-value="1" onclick="selectBaths(this)">1+</button>
+                                <button class="btn-chip" data-value="2" onclick="selectBaths(this)">2+</button>
+                                <button class="btn-chip" data-value="3" onclick="selectBaths(this)">3+</button>
+                                <button class="btn-chip" data-value="4" onclick="selectBaths(this)">4+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Square Feet</label>
+                        <div class="range-inputs">
+                            <input type="number" id="minSqft" placeholder="Min" class="filter-input-small">
+                            <span>to</span>
+                            <input type="number" id="maxSqft" placeholder="Max" class="filter-input-small">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Lot Size</label>
+                        <div class="range-inputs">
+                            <input type="number" id="minLotSize" placeholder="Min Acres" class="filter-input-small">
+                            <span>to</span>
+                            <input type="number" id="maxLotSize" placeholder="Max Acres" class="filter-input-small">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Year Built</label>
+                        <div class="range-inputs">
+                            <input type="number" id="minYear" placeholder="Min" class="filter-input-small">
+                            <span>to</span>
+                            <input type="number" id="maxYear" placeholder="Max" class="filter-input-small">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Features & Amenities</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="pool" class="filter-checkbox">
+                                <span>Pool</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="garage" class="filter-checkbox">
+                                <span>Garage</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="smartHome" class="filter-checkbox">
+                                <span>Smart Home</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="waterfront" class="filter-checkbox">
+                                <span>Waterfront</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="gated" class="filter-checkbox">
+                                <span>Gated Community</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="petFriendly" class="filter-checkbox">
+                                <span>Pet Friendly</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newConstruction" class="filter-checkbox">
+                                <span>New Construction</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="foreclosure" class="filter-checkbox">
+                                <span>Foreclosure</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">HOA Fees (Monthly)</label>
+                        <select id="hoaFees" class="filter-select">
+                            <option value="">Any</option>
+                            <option value="0">No HOA</option>
+                            <option value="100">Under $100</option>
+                            <option value="200">Under $200</option>
+                            <option value="300">Under $300</option>
+                            <option value="500">Under $500</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-primary btn-block" onclick="applyFilters()">
+                            <i class="fas fa-search"></i> Apply Filters & Search
+                        </button>
+                        <button class="btn btn-secondary btn-block" onclick="saveSearch()">
+                            <i class="fas fa-bell"></i> Save Search & Get Alerts
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Results View Switcher -->
+                <div class="search-results-container">
+                    <div class="results-header">
+                        <div class="results-info">
+                            <h3 id="resultsCount">Loading live listings...</h3>
+                            <p id="resultsLocation">Searching entire MLS database...</p>
+                        </div>
+                        
+                        <div class="results-controls">
+                            <div class="view-switcher">
+                                <button class="view-btn active" data-view="grid" onclick="switchView('grid')">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button class="view-btn" data-view="list" onclick="switchView('list')">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                                <button class="view-btn" data-view="map" onclick="switchView('map')">
+                                    <i class="fas fa-map"></i>
+                                </button>
+                            </div>
+                            
+                            <select id="sortBy" class="filter-select" onchange="sortResults(this.value)">
+                                <option value="newest">Newest First</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="beds">Most Bedrooms</option>
+                                <option value="sqft">Largest Sqft</option>
+                                <option value="price-drop">Recent Price Drops</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Map View -->
+                    <div id="mapView" class="map-view" style="display: none;">
+                        <div id="propertyMap" class="property-map"></div>
+                        <div class="map-controls">
+                            <button class="map-control-btn" onclick="toggleMapType()">
+                                <i class="fas fa-satellite"></i> Satellite
+                            </button>
+                            <button class="map-control-btn" onclick="drawPolygon()">
+                                <i class="fas fa-draw-polygon"></i> Draw Area
+                            </button>
+                            <button class="map-control-btn" onclick="toggleHeatmap()">
+                                <i class="fas fa-fire"></i> Price Heatmap
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Grid/List View -->
+                    <div id="gridView" class="properties-grid">
+                        <!-- Properties will be dynamically loaded here -->
+                        <div class="loading-skeleton">
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                            <div class="skeleton-card"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div id="pagination" class="pagination">
+                        <!-- Pagination will be dynamically generated -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voice Search & Natural Language -->
+            <div class="voice-search-section">
+                <button class="btn btn-voice" onclick="startVoiceSearch()">
+                    <i class="fas fa-microphone"></i>
+                    <span>Try Voice Search: "3 bedroom luxury home near metro with pool under 2 million"</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXCLUSIVE OFF-MARKET LISTINGS ==================== -->
+    <section class="off-market-section">
+        <div class="container">
+            <div class="off-market-card">
+                <div class="off-market-content">
+                    <span class="exclusive-badge">
+                        <i class="fas fa-crown"></i> VIP Access
+                    </span>
+                    <h2>Exclusive Off-Market & Pocket Listings</h2>
+                    <p>
+                        Get first access to properties before they hit the public market. 
+                        Premium opportunities for serious buyers only.
+                    </p>
+                    <button class="btn btn-primary btn-large" onclick="openOffMarketModal()">
+                        <i class="fas fa-unlock"></i> Unlock Private Listings
+                    </button>
+                </div>
+                <div class="off-market-visual">
+                    <div class="luxury-grid">
+                        <div class="luxury-item"></div>
+                        <div class="luxury-item"></div>
+                        <div class="luxury-item"></div>
+                        <div class="luxury-item"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SELL YOUR HOME SECTION ==================== -->
+    <section id="sell" class="sell-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">
+                    <i class="fas fa-dollar-sign"></i> Sell With Confidence
+                </span>
+                <h2 class="section-title">Get Maximum Value for Your Home</h2>
+                <p class="section-description">
+                    Advanced pricing algorithms, professional marketing, and proven strategies 
+                    to sell your home faster and for the highest price.
+                </p>
+            </div>
+            
+            <div class="sell-grid">
+                <!-- Instant Home Valuation -->
+                <div class="sell-card feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Instant Home Valuation</h3>
+                    <p>Get your property's accurate market value in 60 seconds using AI and live comparable sales data.</p>
+                    <form class="valuation-form" onsubmit="handleValuation(event)">
+                        <div class="input-with-icon">
+                            <i class="fas fa-home"></i>
+                            <input type="text" id="valuationAddressMain" placeholder="Enter Your Address" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-calculator"></i> Get Free CMA Report
+                        </button>
+                    </form>
+                    <p class="form-note">
+                        <i class="fas fa-check-circle"></i> No obligation • 100% free • Instant PDF report
+                    </p>
+                </div>
+                
+                <!-- Selling Advantages -->
+                <div class="sell-card advantages-card">
+                    <h3>Why Sellers Choose Me</h3>
+                    <ul class="advantages-list">
+                        <li>
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <strong>Sell 45% Faster</strong>
+                                <span>Average 12 days vs market average 22 days</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-dollar-sign"></i>
+                            <div>
+                                <strong>106% of Asking Price</strong>
+                                <span>Proven negotiation strategies that maximize value</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-camera"></i>
+                            <div>
+                                <strong>Professional Marketing</strong>
+                                <span>8K photography, drone video, 3D tours, social media</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <strong>Massive Buyer Network</strong>
+                                <span>5,000+ pre-qualified buyers in our database</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Highest Price Guarantee</strong>
+                                <span>If we don't get top dollar, we reduce our commission</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary btn-block" onclick="openSellerConsultation()">
+                        <i class="fas fa-handshake"></i> Schedule Seller Consultation
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Selling Process Timeline -->
+            <div class="selling-process">
+                <h3 class="process-title">Our Proven 5-Step Selling Process</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h4>Free Home Valuation</h4>
+                            <p>In-depth market analysis and pricing strategy</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h4>Property Preparation</h4>
+                            <p>Staging advice, repairs, and enhancements</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h4>Premium Marketing</h4>
+                            <p>Professional media, MLS, and targeted campaigns</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-content">
+                            <h4>Showings & Negotiation</h4>
+                            <p>Manage tours and secure the best offer</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">5</div>
+                        <div class="timeline-content">
+                            <h4>Smooth Closing</h4>
+                            <p>Handle paperwork and ensure on-time completion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MARKET INTELLIGENCE DASHBOARD ==================== -->
+    <section id="market" class="market-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">
+                    <i class="fas fa-circle pulse-dot"></i> Live Market Data
+                </span>
+                <h2 class="section-title">Real-Time Market Intelligence</h2>
+                <p class="section-description">
+                    Data-driven insights updated hourly. Make informed decisions with accurate, 
+                    real-time market trends and neighborhood analytics.
+                </p>
+            </div>
+            
+            <!-- Market Stats Cards -->
+            <div class="market-stats-grid">
+                <div class="market-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="marketInventory">Loading...</div>
+                        <div class="stat-label">Active Listings</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> <span id="inventoryChange">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="market-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="medianPrice">Loading...</div>
+                        <div class="stat-label">Median Sale Price</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> <span id="priceChange">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="market-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="daysOnMarket">Loading...</div>
+                        <div class="stat-label">Avg Days on Market</div>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i> <span id="domChange">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="market-stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="listToSoldRatio">Loading...</div>
+                        <div class="stat-label">List-to-Sold Ratio</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> <span id="ratioChange">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Market Charts -->
+            <div class="market-charts">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Price Trends - Last 12 Months</h3>
+                        <div class="chart-controls">
+                            <button class="chart-btn active" onclick="updateChart('6m')">6M</button>
+                            <button class="chart-btn" onclick="updateChart('1y')">1Y</button>
+                            <button class="chart-btn" onclick="updateChart('3y')">3Y</button>
+                            <button class="chart-btn" onclick="updateChart('5y')">5Y</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Inventory & Sales Volume</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="inventoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Neighborhood Heatmap -->
+            <div class="neighborhood-heatmap">
+                <h3>Neighborhood Price Heatmap</h3>
+                <div id="neighborhoodMap" class="heatmap-container"></div>
+                <div class="heatmap-legend">
+                    <span class="legend-label">More Affordable</span>
+                    <div class="legend-gradient"></div>
+                    <span class="legend-label">Premium</span>
+                </div>
+            </div>
+            
+            <!-- Free Market Reports -->
+            <div class="market-reports-cta">
+                <div class="reports-content">
+                    <h3>Get Detailed Neighborhood Market Reports</h3>
+                    <p>Comprehensive analysis including price trends, inventory, school ratings, demographics, and investment potential.</p>
+                    <form class="report-form" onsubmit="handleMarketReport(event)">
+                        <input type="text" placeholder="Enter Neighborhood or ZIP Code" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Get Free Report
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CALCULATORS SECTION ==================== -->
+    <section class="calculators-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">
+                    <i class="fas fa-calculator"></i> Financial Tools
+                </span>
+                <h2 class="section-title">Real-Time Calculators</h2>
+                <p class="section-description">
+                    100% accurate calculators with live interest rates and market data
+                </p>
+            </div>
+            
+            <div class="calculator-tabs">
+                <button class="calc-tab active" data-calc="mortgage">
+                    <i class="fas fa-home"></i> Mortgage Calculator
+                </button>
+                <button class="calc-tab" data-calc="affordability">
+                    <i class="fas fa-money-bill-wave"></i> Affordability
+                </button>
+                <button class="calc-tab" data-calc="rentVsBuy">
+                    <i class="fas fa-balance-scale"></i> Rent vs Buy
+                </button>
+                <button class="calc-tab" data-calc="closing">
+                    <i class="fas fa-file-invoice-dollar"></i> Closing Costs
+                </button>
+            </div>
+            
+            <div class="calculator-container">
+                <!-- Mortgage Calculator -->
+                <div class="calculator-panel active" data-panel="mortgage">
+                    <div class="calculator-input-section">
+                        <div class="calc-input-group">
+                            <label>Home Price</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="mortgagePrice" value="500000" oninput="calculateMortgage()">
+                            </div>
+                        </div>
+                        
+                        <div class="calc-input-group">
+                            <label>Down Payment</label>
+                            <div class="input-dual">
+                                <div class="input-with-prefix">
+                                    <span class="prefix">$</span>
+                                    <input type="number" id="downPaymentAmount" value="100000" oninput="updateDownPaymentPercent()">
+                                </div>
+                                <div class="input-with-suffix">
+                                    <input type="number" id="downPaymentPercent" value="20" oninput="updateDownPaymentAmount()">
+                                    <span class="suffix">%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-input-group">
+                            <label>Interest Rate (Live: <span id="currentRate">6.5%</span>)</label>
+                            <div class="input-with-suffix">
+                                <input type="number" id="interestRate" value="6.5" step="0.01" oninput="calculateMortgage()">
+                                <span class="suffix">%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-input-group">
+                            <label>Loan Term</label>
+                            <select id="loanTerm" onchange="calculateMortgage()">
+                                <option value="15">15 Years</option>
+                                <option value="20">20 Years</option>
+                                <option value="30" selected>30 Years</option>
+                            </select>
+                        </div>
+                        
+                        <div class="calc-input-group">
+                            <label>Property Tax (Annual)</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="propertyTax" value="6000" oninput="calculateMortgage()">
+                            </div>
+                        </div>
+                        
+                        <div class="calc-input-group">
+                            <label>Home Insurance (Annual)</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="homeInsurance" value="1500" oninput="calculateMortgage()">
+                            </div>
+                        </div>
+                        
+                        <div class="calc-input-group">
+                            <label>HOA Fees (Monthly)</label>
+                            <div class="input-with-prefix">
+                                <span class="prefix">$</span>
+                                <input type="number" id="hoaFees" value="200" oninput="calculateMortgage()">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-result-section">
+                        <div class="result-card primary">
+                            <div class="result-label">Monthly Payment</div>
+                            <div class="result-value" id="monthlyPayment">$3,245</div>
+                        </div>
+                        
+                        <div class="result-breakdown">
+                            <div class="breakdown-item">
+                                <span>Principal & Interest</span>
+                                <strong id="principalInterest">$2,548</strong>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Property Tax</span>
+                                <strong id="taxMonthly">$500</strong>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Home Insurance</span>
+                                <strong id="insuranceMonthly">$125</strong>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>HOA Fees</span>
+                                <strong id="hoaMonthly">$200</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="result-summary">
+                            <div class="summary-item">
+                                <span>Total Loan Amount</span>
+                                <strong id="loanAmount">$400,000</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Total Interest Paid</span>
+                                <strong id="totalInterest">$517,308</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Total Cost</span>
+                                <strong id="totalCost">$917,308</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-mini">
+                            <canvas id="mortgageChart"></canvas>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-block" onclick="emailCalculation('mortgage')">
+                            <i class="fas fa-envelope"></i> Email This Calculation
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Other calculators (Affordability, Rent vs Buy, Closing Costs) -->
+                <!-- Will be implemented in JavaScript dynamically -->
+                <div class="calculator-panel" data-panel="affordability">
+                    <div class="calculator-content">
+                        <p class="calc-description">Calculate how much home you can afford based on your income and debts</p>
+                        <!-- Calculator implementation in JS -->
+                    </div>
+                </div>
+                
+                <div class="calculator-panel" data-panel="rentVsBuy">
+                    <div class="calculator-content">
+                        <p class="calc-description">Compare the true cost of renting vs buying over time</p>
+                        <!-- Calculator implementation in JS -->
+                    </div>
+                </div>
+                
+                <div class="calculator-panel" data-panel="closing">
+                    <div class="calculator-content">
+                        <p class="calc-description">Estimate your closing costs for buying or selling</p>
+                        <!-- Calculator implementation in JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT AGENT SECTION ==================== -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="assets/agent-photo.jpg" alt="[Your Full Name] - Real Estate Agent" class="agent-photo">
+                        <div class="image-badge">
+                            <i class="fas fa-award"></i>
+                            <span>[X Years]<br>Experience</span>
+                        </div>
+                    </div>
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Licensed Agent<br><strong>[RE License Number]</strong></span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>Top Producer<br><strong>2020-2024</strong></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <span class="section-label">
+                        <i class="fas fa-user"></i> Your Trusted Partner
+                    </span>
+                    <h2 class="section-title">Meet [Your Full Name]</h2>
+                    <p class="about-description">
+                        With [X years] of experience in [Your City/Neighborhood]'s luxury real estate market, 
+                        I combine cutting-edge technology with personalized service to deliver exceptional results 
+                        for my clients.
+                    </p>
+                    
+                    <div class="specialties">
+                        <h3>Specializations</h3>
+                        <div class="specialty-tags">
+                            <span class="specialty-tag"><i class="fas fa-gem"></i> Luxury Homes</span>
+                            <span class="specialty-tag"><i class="fas fa-home"></i> Residential</span>
+                            <span class="specialty-tag"><i class="fas fa-chart-line"></i> Investment Properties</span>
+                            <span class="specialty-tag"><i class="fas fa-key"></i> Rentals</span>
+                            <span class="specialty-tag"><i class="fas fa-handshake"></i> First-Time Buyers</span>
+                            <span class="specialty-tag"><i class="fas fa-building"></i> Commercial</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements">
+                        <div class="achievement-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <strong>500+ Homes Sold</strong>
+                                <span>Proven track record of success</span>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <strong>98% Client Satisfaction</strong>
+                                <span>150+ five-star reviews</span>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>12 Days Average Market Time</strong>
+                                <span>Sell faster than market average</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-video">
+                        <button class="video-play-btn" onclick="playAgentVideo()">
+                            <i class="fas fa-play"></i>
+                            <span>Watch My Introduction Video</span>
+                        </button>
+                    </div>
+                    
+                    <div class="about-cta">
+                        <button class="btn btn-primary btn-large" onclick="openContactModal()">
+                            <i class="fas fa-calendar-check"></i> Schedule a Meeting
+                        </button>
+                        <a href="tel:[Your Phone]" class="btn btn-secondary btn-large">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS & REVIEWS ==================== -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">
+                    <i class="fas fa-star"></i> Client Success Stories
+                </span>
+                <h2 class="section-title">What My Clients Say</h2>
+                <div class="review-summary">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p><strong>5.0</strong> out of 5 based on <strong>150+ reviews</strong></p>
+                </div>
+            </div>
+            
+            <!-- Live Reviews Widget -->
+            <div class="reviews-widget" id="liveReviews">
+                <div class="reviews-slider">
+                    <!-- Reviews will be dynamically loaded from Google/Zillow/Facebook -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="assets/client-1.jpg" alt="Client" class="reviewer-photo">
+                                <div>
+                                    <h4 class="reviewer-name">Sarah Johnson</h4>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-source">
+                                <i class="fab fa-google"></i> Google
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "Absolutely exceptional service! [Your Name] helped us find our dream home in just 2 weeks. 
+                            The 3D virtual tours saved us so much time, and the real-time market data gave us confidence 
+                            in our offer. Highly recommend!"
+                        </p>
+                        <span class="review-date">2 weeks ago</span>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="assets/client-2.jpg" alt="Client" class="reviewer-photo">
+                                <div>
+                                    <h4 class="reviewer-name">Michael Chen</h4>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-source">
+                                <i class="fab fa-zillow"></i> Zillow
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "Sold our home in 5 days for 12% over asking! [Your Name]'s marketing strategy was 
+                            incredible - professional photos, drone video, and targeted social media campaigns. 
+                            True real estate expert!"
+                        </p>
+                        <span class="review-date">1 month ago</span>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="assets/client-3.jpg" alt="Client" class="reviewer-photo">
+                                <div>
+                                    <h4 class="reviewer-name">Emily Rodriguez</h4>
+                                    <div class="review-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-source">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "As first-time homebuyers, we were nervous about the process. [Your Name] made everything 
+                            easy and transparent. The mortgage calculator and closing cost estimates were spot-on. 
+                            Couldn't be happier!"
+                        </p>
+                        <span class="review-date">3 weeks ago</span>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn prev" onclick="prevReview()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next" onclick="nextReview()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Video Testimonials -->
+            <div class="video-testimonials">
+                <h3>Video Testimonials</h3>
+                <div class="video-grid">
+                    <div class="video-card" onclick="playTestimonial(1)">
+                        <div class="video-thumbnail">
+                            <img src="assets/testimonial-1-thumb.jpg" alt="Client Testimonial">
+                            <div class="play-overlay">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <p class="video-title">"Sold in 3 Days - Amazing!"</p>
+                    </div>
+                    
+                    <div class="video-card" onclick="playTestimonial(2)">
+                        <div class="video-thumbnail">
+                            <img src="assets/testimonial-2-thumb.jpg" alt="Client Testimonial">
+                            <div class="play-overlay">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <p class="video-title">"Found Our Perfect Home"</p>
+                    </div>
+                    
+                    <div class="video-card" onclick="playTestimonial(3)">
+                        <div class="video-thumbnail">
+                            <img src="assets/testimonial-3-thumb.jpg" alt="Client Testimonial">
+                            <div class="play-overlay">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <p class="video-title">"Best Agent Ever!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </span>
+                <h2 class="section-title">Let's Start Your Real Estate Journey</h2>
+                <p class="section-description">
+                    Available 7 days a week. 15-minute response guarantee. Book a consultation or send a message.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <form class="contact-form" id="mainContactForm" onsubmit="handleContactForm(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" required placeholder="(555) 123-4567">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>I'm Interested In *</label>
+                            <select name="interest" required>
+                                <option value="">Select an option</option>
+                                <option value="buying">Buying a Home</option>
+                                <option value="selling">Selling a Home</option>
+                                <option value="renting">Renting a Property</option>
+                                <option value="investment">Investment Properties</option>
+                                <option value="valuation">Home Valuation</option>
+                                <option value="consultation">General Consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" rows="5" placeholder="Tell me about your real estate needs..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Preferred Contact Method</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="contactMethod" value="phone" checked>
+                                    <span>Phone</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="contactMethod" value="email">
+                                    <span>Email</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="contactMethod" value="whatsapp">
+                                    <span>WhatsApp</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block btn-large">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        
+                        <p class="form-note">
+                            <i class="fas fa-shield-alt"></i> Your information is secure and will never be shared.
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- Contact Info & Calendar -->
+                <div class="contact-info-container">
+                    <!-- Quick Contact Cards -->
+                    <div class="quick-contact-cards">
+                        <a href="tel:[Your Phone]" class="quick-contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Call or Text</span>
+                                <strong>[Your Phone]</strong>
+                            </div>
+                        </a>
+                        
+                        <a href="mailto:[Your Email]" class="quick-contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Email</span>
+                                <strong>[Your Email]</strong>
+                            </div>
+                        </a>
+                        
+                        <a href="https://wa.me/[WhatsApp Number]" class="quick-contact-card" target="_blank">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">WhatsApp</span>
+                                <strong>Chat Now</strong>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Office Location -->
+                    <div class="office-info">
+                        <h3><i class="fas fa-map-marker-alt"></i> Office Location</h3>
+                        <p>
+                            [Your Office Address]<br>
+                            [City, State ZIP]
+                        </p>
+                        <p class="office-hours">
+                            <strong>Hours:</strong> Mon-Sun 8:00 AM - 9:00 PM
+                        </p>
+                        <a href="https://maps.google.com/?q=[Your Address]" target="_blank" class="btn btn-secondary btn-block">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
+                    
+                    <!-- Calendar Booking Widget -->
+                    <div class="calendar-widget">
+                        <h3><i class="fas fa-calendar-check"></i> Book a Meeting</h3>
+                        <p>Schedule a free consultation at your convenience</p>
+                        <button class="btn btn-primary btn-block" onclick="openCalendarModal()">
+                            <i class="fas fa-clock"></i> View Available Times
+                        </button>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="social-media">
+                        <h3>Follow Me</h3>
+                        <div class="social-links">
+                            <a href="[Facebook URL]" target="_blank" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="[Instagram URL]" target="_blank" class="social-btn instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="[LinkedIn URL]" target="_blank" class="social-btn linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="[YouTube URL]" target="_blank" class="social-btn youtube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-home-lg-alt"></i>
+                        <span>[Your Full Name]</span>
+                    </div>
+                    <p class="footer-description">
+                        Your trusted real estate partner in [Your City/Neighborhood]. 
+                        Combining technology, expertise, and personalized service to exceed your expectations.
+                    </p>
+                    <div class="footer-license">
+                        <i class="fas fa-certificate"></i>
+                        <span>RE License: [RE License Number]</span>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#search">Search Properties</a></li>
+                        <li><a href="#sell">Sell Your Home</a></li>
+                        <li><a href="#market">Market Insights</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="openValuationModal()">Free Home Valuation</a></li>
+                        <li><a href="#" onclick="downloadBuyerGuide()">Buyer's Guide (PDF)</a></li>
+                        <li><a href="#" onclick="downloadSellerGuide()">Seller's Playbook (PDF)</a></li>
+                        <li><a href="#" onclick="openMarketReportModal()">Market Reports</a></li>
+                        <li><a href="#calculators">Financial Calculators</a></li>
+                        <li><a href="#" onclick="openOffMarketModal()">Off-Market Listings</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:[Your Phone]">[Your Phone]</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:[Your Email]">[Your Email]</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>[Your Office Address]</span>
+                        </li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="[Facebook]" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="[Instagram]" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="[LinkedIn]" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="[YouTube]" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 [Your Full Name] Real Estate. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#" onclick="openPrivacyModal()">Privacy Policy</a>
+                    <a href="#" onclick="openTermsModal()">Terms of Service</a>
+                    <a href="#" onclick="openAccessibilityModal()">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== FLOATING STICKY CTA BAR (Mobile) ==================== -->
+    <div class="floating-cta-bar" id="floatingCTA">
+        <button class="floating-cta-btn" onclick="openQuickActionModal()">
+            <i class="fas fa-home"></i>
+            <span>Search Properties</span>
+        </button>
+        <button class="floating-cta-btn" onclick="openValuationModal()">
+            <i class="fas fa-chart-line"></i>
+            <span>Get Valuation</span>
+        </button>
+        <button class="floating-cta-btn" onclick="openContactModal()">
+            <i class="fas fa-calendar-check"></i>
+            <span>Book Tour</span>
+        </button>
+        <a href="tel:[Your Phone]" class="floating-cta-btn primary">
+            <i class="fas fa-phone"></i>
+            <span>Call Now</span>
+        </a>
+    </div>
+
+    <!-- ==================== AI CHATBOT WIDGET ==================== -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chatbot-badge" id="chatbotBadge">1</span>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <img src="assets/agent-photo.jpg" alt="AI Assistant">
+                    <span class="online-dot"></span>
+                </div>
+                <div class="chatbot-info">
+                    <h4>AI Real Estate Assistant</h4>
+                    <p>Powered by [Your Name]</p>
+                </div>
+                <button class="chatbot-close" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>👋 Hi! I'm your AI real estate assistant. How can I help you today?</p>
+                        <div class="quick-replies">
+                            <button class="quick-reply" onclick="sendQuickReply('Search properties')">
+                                🏡 Search Properties
+                            </button>
+                            <button class="quick-reply" onclick="sendQuickReply('Home valuation')">
+                                📊 Home Valuation
+                            </button>
+                            <button class="quick-reply" onclick="sendQuickReply('Book tour')">
+                                📅 Book a Tour
+                            </button>
+                            <button class="quick-reply" onclick="sendQuickReply('Market data')">
+                                📈 Market Data
+                            </button>
+                        </div>
+                    </div>
+                    <span class="message-time">Just now</span>
+                </div>
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
+                <button class="chatbot-send" onclick="sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-footer">
+                <button class="chatbot-action" onclick="transferToAgent()">
+                    <i class="fas fa-user"></i> Talk to [Your Name]
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+    
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-overlay" onclick="closeModal('contactModal')"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('contactModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Contact Me</h2>
+            <!-- Form content here -->
+        </div>
+    </div>
+    
+    <!-- Valuation Modal -->
+    <div class="modal" id="valuationModal">
+        <div class="modal-overlay" onclick="closeModal('valuationModal')"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('valuationModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Get Your Free Home Valuation</h2>
+            <!-- Form content here -->
+        </div>
+    </div>
+    
+    <!-- Calendar Modal -->
+    <div class="modal" id="calendarModal">
+        <div class="modal-overlay" onclick="closeModal('calendarModal')"></div>
+        <div class="modal-content modal-large">
+            <button class="modal-close" onclick="closeModal('calendarModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Book Your Free Consultation</h2>
+            <div id="calendarEmbed">
+                <!-- Calendly or Google Calendar embed will go here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Off-Market Modal -->
+    <div class="modal" id="offMarketModal">
+        <div class="modal-overlay" onclick="closeModal('offMarketModal')"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('offMarketModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Access Exclusive Off-Market Listings</h2>
+            <!-- Form content here -->
+        </div>
+    </div>
+
+    <!-- Property Detail Modal -->
+    <div class="modal" id="propertyModal">
+        <div class="modal-overlay" onclick="closeModal('propertyModal')"></div>
+        <div class="modal-content modal-xlarge">
+            <button class="modal-close" onclick="closeModal('propertyModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="propertyDetailContent">
+                <!-- Property details will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-overlay" onclick="closeModal('successModal')"></div>
+        <div class="modal-content modal-small">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Success!</h2>
+            <p id="successMessage">Your message has been sent successfully.</p>
+            <button class="btn btn-primary btn-block" onclick="closeModal('successModal')">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="app.js"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(err => console.log('SW registration failed'));
+            });
+        }
+    </script>
+</body>
+</html>
